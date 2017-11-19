@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <the-header></the-header>
-    <quiz-details :quiz="quiz"></quiz-details>
-    <router-view/>
+    <section class="container">
+      <the-header></the-header>
+      <quiz-details :quiz="quiz"></quiz-details>
+      <router-view/>
+    </section>
   </div>
 </template>
 
@@ -16,17 +18,13 @@ export default {
     TheHeader,
     QuizDetails
   },
-  data() {
-    return {
-      quiz: null
-    }
+  computed: {
+   quiz() {
+    return this.$store.getters.quiz;
+   }
   },
   mounted() {
-    fetch('/static/quiz.json')
-    .then((res) => res.json())
-    .then((quiz) => {
-      this.quiz = quiz;
-    });
+    this.$store.dispatch('init');
   }
 }
 </script>

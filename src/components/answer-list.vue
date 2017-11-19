@@ -1,10 +1,6 @@
 <template>
-  <section v-if="answers">
-    <ul>
-      <li v-for="answer of answers" :key="answer">
-        <answer-list-element :answer="answer"></answer-list-element>
-      </li>
-    </ul>
+  <section v-if="answers" class="panel">
+    <answer-list-element v-for="answer of answers" :key="answer" :answer="answer"></answer-list-element>
   </section>
 </template>
 

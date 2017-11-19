@@ -1,5 +1,7 @@
 <template>
-  <p v-if="answer">{{answer}}</p>
+  <section class="panel-block">
+    <p v-if="answer">{{answer}}</p>
+  </section>
 </template>
 
 <script>

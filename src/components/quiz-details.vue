@@ -16,7 +16,7 @@
     </div>
   </div>
   </section>
-    <question-list :questions="quiz.questions"></question-list>
+    <question-list  v-if="quiz" :questions="quiz.questions"></question-list>
 </section>
 </template>
 

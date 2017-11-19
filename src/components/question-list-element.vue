@@ -1,14 +1,11 @@
 <template>
-  <section v-if="question">
-    <article class="message is-info">
+  <section v-if="question" class="message">
       <div class="message-header">
        <h3> {{question.title}} </h3>
       </div>
       <div class="message-body">
         <answer-list :answers="question.answers"></answer-list>
       </div>
-    </article>
-    <hr>
   </section>
 </template>
 
