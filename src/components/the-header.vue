@@ -1,9 +1,6 @@
 <template>
   <section>
-    <h1>Quiz</h1>
-    <p>
-      Wybierz pytanie
-    </p>
+    <h1 class="title is-1">Quiz</h1>
   </section>
 </template>
 
@@ -14,7 +11,5 @@
 </script>
 
 <style scoped>
-  h1 {
-    background: red;
-  }
+
 </style>
