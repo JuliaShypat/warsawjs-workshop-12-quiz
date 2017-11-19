@@ -16,7 +16,8 @@
     </div>
   </div>
   </section>
-    <question-list  v-if="quiz" :questions="quiz.questions"></question-list>
+  <question-list  v-if="quiz" :questions="quiz.questions"></question-list>
+  <a class="button is-success" @click="calculateResult">Pokaż wynik</a>
 </section>
 </template>
 
@@ -30,6 +31,11 @@ import QuestionList from './question-list.vue';
     },
     props: {
       quiz:Object
+    },
+    methods: {
+      calculateResult() {
+        this.quiz.questions = this.$store.getters.questions;
+      }
     }
   }
 </script>

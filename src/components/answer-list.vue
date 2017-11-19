@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     onSelectAnswer(selectedAnswer, selectedAnswerIndex) {
-      this.$emit('selectAswerIndex', selectedAnswerIndex);
+      this.$emit('selectAnswerIndex', selectedAnswerIndex);
     }
   }
 }

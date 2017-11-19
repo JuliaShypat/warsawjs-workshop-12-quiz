@@ -1,12 +1,13 @@
 <template>
   <section v-if="question" class="message">
+    <p>{{ question.correct }}</p>
       <div class="message-header">
        <h3> {{question.title}} </h3>
       </div>
       <div class="message-body">
         <answer-list
         :answers="question.answers"
-        @selectAswerIndex = "handleSelectAnswer"
+        @selectAnswerIndex = "handleSelectAnswer"
         ></answer-list>
       </div>
   </section>
@@ -20,16 +21,13 @@ import AnswerList from './answer-list';
     components: {
       AnswerList
     },
-    data() {
-
-    },
     props: {
       question:Object
     },
     methods: {
       handleSelectAnswer(answerIndex) {
-        console.log(answerIndex, this.question.correctAnswerIndex);
-        this.checkIfAnswerIsCorrect(answerIndex, this.question.correctAnswerIndex);
+        const question = this.question;
+        this.$store.commit('setUserAnswerIndex', {answerIndex, question});
       },
       checkIfAnswerIsCorrect(selectedIndex, correctIndex) {
         if(selectedIndex === correctIndex) {
