@@ -1,6 +1,11 @@
 <template>
   <section v-if="answers" class="panel">
-    <answer-list-element v-for="answer of answers" :key="answer" :answer="answer"></answer-list-element>
+    <answer-list-element
+    v-for="(answer, index) in answers"
+    :key="answer"
+    :answer="answer"
+    @selectAnswer="onSelectAnswer(answer, index)"
+   ></answer-list-element>
   </section>
 </template>
 
@@ -14,6 +19,11 @@ export default {
   },
   props: {
     answers:Array
+  },
+  methods: {
+    onSelectAnswer(selectedAnswer, selectedAnswerIndex) {
+      this.$emit('selectAswerIndex', selectedAnswerIndex);
+    }
   }
 }
 </script>

@@ -5,7 +5,8 @@ import Vue from 'vue';
 
  export default new Vuex.Store({
    state: {
-     quiz: null
+     quiz: null,
+     selectedAnswers: {}
    },
    actions: {
      init({ commit }) {
