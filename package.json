@@ -9,7 +9,6 @@
     "start": "serve dist/",
     "build": "node build/build.js",
     "deploy": "npm run build && git add dist/ && git commit -am 'Deploy' && git push heroku master"
-
   },
   "dependencies": {
     "serve": "^6.4.1",
