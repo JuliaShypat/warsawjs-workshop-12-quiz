@@ -4,8 +4,9 @@
     v-for="(answer, index) in answers"
     :key="answer"
     :answer="answer"
-    @selectAnswer="onSelectAnswer(answer, index)"
-   ></answer-list-element>
+    :answerIndex = "index"
+    :question = "question"
+    @selectAnswer="onSelectAnswer(index)"></answer-list-element>
   </section>
 </template>
 
@@ -18,10 +19,11 @@ export default {
     AnswerListElement
   },
   props: {
-    answers:Array
+    answers: Array,
+    question: Object
   },
   methods: {
-    onSelectAnswer(selectedAnswer, selectedAnswerIndex) {
+    onSelectAnswer(selectedAnswerIndex) {
       this.$emit('selectAnswerIndex', selectedAnswerIndex);
     }
   }
