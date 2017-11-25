@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     quiz: null,
+    quizes: null,
     selectedAnswers: {},
     isDisplayResults: false
   },
@@ -13,14 +14,14 @@ export default new Vuex.Store({
     init({ commit }) {
       fetch('/static/quiz.json')
         .then((res) => res.json())
-        .then((quiz) => {
-          commit('init', quiz);
+        .then((quizes) => {
+          commit('init', quizes);
         })
     }
   },
   mutations: {
-    init(state, quiz) {
-      state.quiz = quiz;
+    init(state, quizes) {
+      state.quizes = quizes;
     },
     setUserAnswerIndex(state, { userAnswerIndex, question}) {
       state.quiz.questions.find((q) => {
@@ -35,11 +36,17 @@ export default new Vuex.Store({
     quiz(state) {
       return state.quiz;
     },
+    quizes(state) {
+      return state.quizes;
+    },
     questions(state) {
       return state.quiz.questions;
     },
     isDisplayResults(state) {
       return state.isDisplayResults;
+    },
+    quizt(state, id) {
+      console.log(id);
     }
   }
 });

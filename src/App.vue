@@ -2,25 +2,29 @@
   <div id="app">
     <section class="container">
       <the-header></the-header>
-      <quiz-details :quiz="quiz"></quiz-details>
-      <router-view/>
+      <home-component></home-component>
+      <!--quizes-list :quizes="quizesList"></quizes-list-->
     </section>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/the-header.vue';
-import QuizDetails from './components/quiz-details.vue';
+import QuizesList from './components/quizes-list.vue';
+import HomeComponent from './components/home.vue';
 
 export default {
   name: 'app',
   components: {
     TheHeader,
-    QuizDetails
+    HomeComponent
   },
   computed: {
    quiz() {
     return this.$store.getters.quiz;
+   },
+   quizesList() {
+     return this.$store.getters.quizes;
    }
   },
   mounted() {
